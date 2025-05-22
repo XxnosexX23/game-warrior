@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5lv22oixasxd"]
+[gd_scene load_steps=13 format=3 uid="uid://b5lv22oixasxd"]
 
 [ext_resource type="Texture2D" uid="uid://cat2ru5c2qgmu" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_0415t"]
 [ext_resource type="Script" path="res://scripts/warrior_blue.gd" id="1_m40vt"]
+[ext_resource type="Script" path="res://scripts/machine_state.gd" id="3_lg2vq"]
+[ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_nnxue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8lt5"]
 atlas = ExtResource("1_0415t")
@@ -56,14 +58,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6005"]
 size = Vector2(38, 32)
 
-[node name="warrior_blue" type="CharacterBody2D"]
+[node name="warrior_blue" type="CharacterBody2D" node_paths=PackedStringArray("machine_state")]
 script = ExtResource("1_m40vt")
+machine_state = NodePath("machine_state")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_la6ig")
 animation = &"idle"
-frame_progress = 0.807113
+frame_progress = 0.903877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_d6005")
+
+[node name="machine_state" type="Node" parent="." node_paths=PackedStringArray("character", "animation", "current_state")]
+script = ExtResource("3_lg2vq")
+character = NodePath("..")
+animation = NodePath("../AnimatedSprite2D")
+current_state = NodePath("idle_state")
+
+[node name="idle_state" type="Node" parent="machine_state"]
+script = ExtResource("4_nnxue")

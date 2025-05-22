@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dttqacr5qhn2r"]
+[gd_scene load_steps=3 format=3 uid="uid://dttqacr5qhn2r"]
 
 [ext_resource type="Texture2D" uid="uid://dqmjyjxi0pqdf" path="res://icon.svg" id="1_mxtwd"]
+[ext_resource type="PackedScene" uid="uid://b5lv22oixasxd" path="res://scenes/warrior_blue.tscn" id="2_nla51"]
 
 [node name="world" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(101, 27)
 texture = ExtResource("1_mxtwd")
+
+[node name="warrior_blue" parent="." instance=ExtResource("2_nla51")]
+position = Vector2(-6, 1)
