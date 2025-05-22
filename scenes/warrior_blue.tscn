@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5lv22oixasxd"]
+
+[ext_resource type="Texture2D" uid="uid://cat2ru5c2qgmu" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_0415t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8lt5"]
+atlas = ExtResource("1_0415t")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xaqy"]
+atlas = ExtResource("1_0415t")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve8ef"]
+atlas = ExtResource("1_0415t")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7c2k"]
+atlas = ExtResource("1_0415t")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i6q3"]
+atlas = ExtResource("1_0415t")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g306t"]
+atlas = ExtResource("1_0415t")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_la6ig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8lt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xaqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve8ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7c2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i6q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g306t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6005"]
+size = Vector2(38, 32)
+
+[node name="warrior_blue" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_la6ig")
+animation = &"idle"
+frame_progress = 0.988586
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_d6005")
