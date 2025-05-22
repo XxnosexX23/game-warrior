@@ -9,6 +9,7 @@ class_name MachineState
 var arrayStates:Array[State]
 
 func _ready():
+	animation.play("idle")
 	for child in get_children():
 		if child is State:
 			child.character = character
